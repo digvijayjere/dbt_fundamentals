@@ -4,5 +4,6 @@ select
     paymentmethod as payment_method,
     status,
     amount/100 as amount,
-    created as created_at
-from raw.jaffle_shop.payments
+    created as created_at,
+    batched_at
+from {{ source('jaffle_shop', 'payments') }}
